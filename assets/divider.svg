@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 16" width="940" height="16"
+     role="img" aria-label="">
+  <defs>
+    <!-- userSpaceOnUse: a horizontal line has a zero-height bbox, and an
+         objectBoundingBox gradient on a zero-height bbox is not rendered at all. -->
+    <linearGradient id="d-line" gradientUnits="userSpaceOnUse" x1="0" y1="8" x2="940" y2="8">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0"/>
+      <stop offset="18%" stop-color="#38bdf8" stop-opacity="0.55"/>
+      <stop offset="50%" stop-color="#818cf8" stop-opacity="0.55"/>
+      <stop offset="82%" stop-color="#f472b6" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#f472b6" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="d-glow">
+      <stop offset="0%" stop-color="#7dd3fc" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#7dd3fc" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <line x1="0" y1="8" x2="940" y2="8" stroke="url(#d-line)" stroke-width="1.5"/>
+
+  <g>
+    <animateTransform attributeName="transform" type="translate"
+                      values="-20,0;960,0" dur="4.5s" repeatCount="indefinite"/>
+    <circle cx="0" cy="8" r="9" fill="url(#d-glow)"/>
+    <circle cx="0" cy="8" r="2.5" fill="#e0f2fe"/>
+  </g>
+</svg>

@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 940 260" width="940" height="260" role="img"
+     aria-label="Vahid Bahadorzadeh — embedded systems, edge AI, stubborn networks">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1020"/>
+      <stop offset="55%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#111a2e"/>
+    </linearGradient>
+
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#f472b6"/>
+    </linearGradient>
+
+    <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="waveFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="14%" stop-color="#ffffff"/>
+      <stop offset="86%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+
+    <mask id="waveMask" maskUnits="userSpaceOnUse" x="0" y="150" width="940" height="110">
+      <rect x="0" y="150" width="940" height="110" fill="url(#waveFade)"/>
+    </mask>
+
+    <pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse">
+      <path d="M26 0H0V26" fill="none" stroke="#1e2a44" stroke-width="1"/>
+    </pattern>
+
+    <clipPath id="frame">
+      <rect x="1" y="1" width="938" height="258" rx="14"/>
+    </clipPath>
+
+    <!-- typed-subtitle reveal: type, hold, wipe back. Width tuned to measured text advance. -->
+    <clipPath id="typeClip" clipPathUnits="userSpaceOnUse">
+      <rect x="46" y="122" width="0" height="26">
+        <animate attributeName="width"
+                 values="0;0;363;363;0"
+                 keyTimes="0;0.06;0.55;0.93;1"
+                 dur="9s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+
+    <!-- Foreground waveform as a mask, so the accent gradient stays pinned to the canvas.
+         Stroking the moving path with the gradient directly would drag the gradient along
+         with it and snap the colours back a third of a cycle at every loop restart. -->
+    <mask id="wave1" maskUnits="userSpaceOnUse" x="0" y="150" width="940" height="110">
+      <g transform="translate(0,205)">
+        <g>
+          <animateTransform attributeName="transform" type="translate"
+                            values="0,0;-480,0" dur="6s" repeatCount="indefinite"/>
+          <path fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                d="M0,0 c15,-30 45,30 60,0 c15,-30 45,30 60,0 c15,-30 45,30 60,0 c15,-30 45,30 60,0
+                   c15,-30 45,30 60,0 c15,-30 45,30 60,0 c15,-30 45,30 60,0 c15,-30 45,30 60,0
+                   c15,-30 45,30 60,0 c15,-30 45,30 60,0 c15,-30 45,30 60,0 c15,-30 45,30 60,0
+                   c15,-30 45,30 60,0 c15,-30 45,30 60,0 c15,-30 45,30 60,0 c15,-30 45,30 60,0
+                   c15,-30 45,30 60,0 c15,-30 45,30 60,0 c15,-30 45,30 60,0 c15,-30 45,30 60,0
+                   c15,-30 45,30 60,0 c15,-30 45,30 60,0 c15,-30 45,30 60,0 c15,-30 45,30 60,0"/>
+        </g>
+      </g>
+    </mask>
+
+    <!-- PCB trace: left edge, one right-angle jog, then on to the via. Length ~934. -->
+    <path id="wire" d="M0,58 H614 Q630,58 630,74 V94 Q630,110 646,110 H894"/>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect x="0" y="0" width="940" height="260" fill="url(#bg)"/>
+    <rect x="0" y="0" width="940" height="260" fill="url(#grid)" opacity="0.55"/>
+
+    <!-- slow light sweep -->
+    <rect x="-400" y="0" width="400" height="260" fill="url(#sweep)">
+      <animate attributeName="x" values="-400;940" dur="7s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- terminal chrome -->
+    <circle cx="30" cy="26" r="5" fill="#ff5f57"/>
+    <circle cx="48" cy="26" r="5" fill="#febc2e"/>
+    <circle cx="66" cy="26" r="5" fill="#28c840"/>
+    <text x="88" y="30" font-family="ui-monospace,SFMono-Regular,Menlo,monospace"
+          font-size="11" fill="#3d4b64">~/vahid — zsh — 80×24</text>
+
+    <!-- status LEDs -->
+    <circle cx="864" cy="26" r="4" fill="#38bdf8">
+      <animate attributeName="opacity" values="1;0.15;1" dur="1.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="880" cy="26" r="4" fill="#818cf8">
+      <animate attributeName="opacity" values="1;0.15;1" dur="1.4s" begin="-0.35s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="896" cy="26" r="4" fill="#f472b6">
+      <animate attributeName="opacity" values="1;0.15;1" dur="1.4s" begin="-0.7s" repeatCount="indefinite"/>
+    </circle>
+
+    <line x1="0" y1="46" x2="940" y2="46" stroke="#1e2a44" stroke-width="1"/>
+
+    <!-- trace wire, lit segment, and travelling packets -->
+    <use xlink:href="#wire" href="#wire" fill="none" stroke="#1e3a5f" stroke-width="1.5"/>
+    <use xlink:href="#wire" href="#wire" fill="none" stroke="url(#accent)" stroke-width="1.5"
+         stroke-linecap="round" stroke-dasharray="70 940" opacity="0.9">
+      <animate attributeName="stroke-dashoffset" values="1010;0" dur="3.6s" repeatCount="indefinite"/>
+    </use>
+    <rect x="-3" y="-3" width="6" height="6" rx="1.5" fill="#38bdf8">
+      <animateMotion dur="3.6s" repeatCount="indefinite">
+        <mpath xlink:href="#wire" href="#wire"/>
+      </animateMotion>
+    </rect>
+    <rect x="-2.5" y="-2.5" width="5" height="5" rx="1.5" fill="#f472b6" opacity="0.85">
+      <animateMotion dur="3.6s" begin="-1.2s" repeatCount="indefinite">
+        <mpath xlink:href="#wire" href="#wire"/>
+      </animateMotion>
+    </rect>
+    <circle cx="894" cy="110" r="3.5" fill="#0d1117" stroke="#38bdf8" stroke-width="1.5"/>
+
+    <!-- name -->
+    <text id="nameText" x="46" y="98" font-family="ui-monospace,SFMono-Regular,Menlo,monospace"
+          font-size="34" font-weight="700" letter-spacing="1.5" fill="url(#accent)" opacity="0">
+      VAHID BAHADORZADEH
+      <animate attributeName="opacity" values="0;1" dur="1.2s" fill="freeze"/>
+    </text>
+
+    <!-- typed subtitle -->
+    <g clip-path="url(#typeClip)">
+      <text id="subText" x="46" y="140" font-family="ui-monospace,SFMono-Regular,Menlo,monospace"
+            font-size="15" fill="#8b9bb4"><tspan fill="#28c840">$</tspan> embedded · edge AI · stubborn networks</text>
+    </g>
+    <rect y="127" width="8" height="16" fill="#38bdf8">
+      <animate attributeName="x"
+               values="46;46;409;409;46"
+               keyTimes="0;0.06;0.55;0.93;1"
+               dur="9s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;0.45;0.5;0.95;1"
+               dur="1s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- oscilloscope traces: tile widths are exact divisors of their translate distance,
+         so both curves map onto themselves at the loop restart -->
+    <g mask="url(#waveMask)">
+      <!-- foreground: 24 tiles x 60px = 1440; travels exactly 8 tiles (480) per 6s.
+           Static gradient, moving mask. -->
+      <rect x="0" y="150" width="940" height="110" fill="url(#accent)"
+            opacity="0.85" mask="url(#wave1)"/>
+
+      <!-- background: 24 tiles x 66px = 1584; travels exactly 8 tiles (528) per 9s.
+           Flat colour, so it can stroke the moving path directly. -->
+      <g transform="translate(-33,205)">
+        <g stroke="#38bdf8" stroke-width="1" fill="none" opacity="0.28">
+          <animateTransform attributeName="transform" type="translate"
+                            values="0,0;-528,0" dur="9s" repeatCount="indefinite"/>
+          <path d="M0,14 c22,-22 44,22 66,0 c22,-22 44,22 66,0 c22,-22 44,22 66,0 c22,-22 44,22 66,0
+                   c22,-22 44,22 66,0 c22,-22 44,22 66,0 c22,-22 44,22 66,0 c22,-22 44,22 66,0
+                   c22,-22 44,22 66,0 c22,-22 44,22 66,0 c22,-22 44,22 66,0 c22,-22 44,22 66,0
+                   c22,-22 44,22 66,0 c22,-22 44,22 66,0 c22,-22 44,22 66,0 c22,-22 44,22 66,0
+                   c22,-22 44,22 66,0 c22,-22 44,22 66,0 c22,-22 44,22 66,0 c22,-22 44,22 66,0
+                   c22,-22 44,22 66,0 c22,-22 44,22 66,0 c22,-22 44,22 66,0 c22,-22 44,22 66,0"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- scope footer -->
+    <text x="46" y="248" font-family="ui-monospace,SFMono-Regular,Menlo,monospace"
+          font-size="10.5" fill="#3d4b64">CH1 20mV/div · TRIG AUTO · signal acquired</text>
+    <text x="894" y="248" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,monospace"
+          font-size="10.5" fill="#3d4b64">status: <tspan fill="#28c840">online</tspan></text>
+  </g>
+
+  <rect x="1" y="1" width="938" height="258" rx="14" fill="none" stroke="#243350" stroke-width="1.5"/>
+</svg>
